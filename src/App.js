@@ -1,24 +1,46 @@
 import logo from './logo.svg';
-import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBell } from '@fortawesome/free-regular-svg-icons';
+import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { response } from './response';
+import { formatDataForCharts } from './utils';
+import './App.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <nav className='navbar'>
+        <img src={logo} className='navbar__app-logo' alt='app-logo'/>
+        <div className='navbar__navigation'>
+          <div className='navbar__input-wrapper'>
+            <FontAwesomeIcon icon={faMagnifyingGlass}/>
+            <input className='navbar__search-input' placeholder='Search ( "/" for hotkey)'/>
+          </div>
+          <ul className='navbar__menu'>
+            <li className='navbar__menu-item'>
+              <a href='/'>
+                <FontAwesomeIcon icon={faBell} />
+              </a>
+            </li>
+            <li className='navbar__menu-item'>
+              <a href='/'>
+                <FontAwesomeIcon icon={faBell} />
+              </a>
+            </li>
+            <li className='navbar__menu-item'>
+              <a href='/'>
+                <FontAwesomeIcon icon={faBars} />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main>
+        <code>
+          {JSON.stringify(formatDataForCharts(response))}
+        </code>
+      </main>
+    </>
   );
 }
 

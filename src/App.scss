@@ -1,0 +1,78 @@
+$mobile-breakpoint: 530px;
+
+.navbar {
+  height: 50px;
+  background-color: #1d2b38;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+
+  &__app-logo {
+    height: 100%;
+    margin-right: 15px;
+  }
+
+  &__navigation {
+    display: flex;
+  }
+
+  &__menu {
+    list-style-type: none;
+    display: flex;
+    height: 100%;
+    margin: 0 0 0 20px;
+    padding: 0;
+  }
+
+  &__menu-item {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+
+    svg {
+      height: 100%;
+
+      path {
+        fill: #b1b5b9;
+      }
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 7px;
+      left: 10px;
+    }
+  }
+
+  &__search-input {
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px 5px 30px;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: 10px; 
+
+    &__app-logo {
+      width: 30px;
+      margin-right: 10px;
+      object-fit: cover;
+      object-position: 0 100%;
+    }
+
+    &__menu {
+      margin-left: 15px;
+    }
+
+    &__menu-item {
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+}
